@@ -68,8 +68,7 @@ This Django project provides APIs to manage music playlists, allowing you to bul
   - **URL:** `http://localhost:8000/songs/`
   - **Method:** `GET`
   - **Query Parameters:**
-    - `page` (optional): Page number for pagination.
-    - `page_size` (optional): Number of items per page.
+    - `page` (optional): Page number for pagination (page size is set to 10).
   - **Response Example:**
 
     ```json

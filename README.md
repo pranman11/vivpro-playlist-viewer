@@ -105,7 +105,7 @@ This Django project provides APIs to manage music playlists, allowing you to bul
     ```
 
 - **Rate a Song (user login required):**
-   Django's inbuilt User model is used as a base model to create a relation between user rating and song. Therefore, easiest way to access this API would be to log into the admin portal (http://localhost:8000/admin) using the superuser details entered above. Once logged in, you can navigate to the below URL.
+   Django's inbuilt User model is used as a base model to create a relation between user rating and song. Therefore, easiest way to access this API would be to log into the admin portal (http://localhost:8000/admin) using the superuser details entered above. Once logged in, you can navigate to the below URL. Once a rating has been given, we can also navigate back to the admin portal to see the ratings provided by each user.
 
   - **URL:** `http://localhost:8000/rate/`
   - **Method:** `POST`

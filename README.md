@@ -17,3 +17,103 @@ This Django project provides APIs to manage music playlists, allowing you to bul
    ```bash
    git clone https://github.com/pranman11/vivpro-playlist-viewer.git
    cd vivpro-playlist-viewer
+
+2. **Set-up virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+3. **Install the Requirements**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Apply Migrations:**
+
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Create a Superuser:**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Load Initial Data using the upload JSON feature:**
+
+   This has been achieved using a management command "import_songs" which can be run as below:
+
+   ```bash
+   python manage.py import_songs <path_to_json_file>
+   ```
+
+## Running the Application
+
+1. **Start the Development Server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+2. **Access the Application:**
+
+   - **Admin Interface:** `http://localhost:8000/admin/`
+   - **API Endpoints:** `http://localhost:8000/songs/`
+
+## API Endpoints
+
+Django provides an interface to interact with it's APIs. Each API endpoint can be accessed using the URL mentioned.
+
+- **List All Songs (with Pagination):**
+
+  - **URL:** `http://localhost:8000/songs/`
+  - **Method:** `GET`
+  - **Query Parameters:**
+    - `page` (optional): Page number for pagination.
+    - `page_size` (optional): Number of items per page.
+  - **Response Example:**
+
+    ```json
+    {
+        "count": 100,
+        "next": "http://localhost:8000/api/songs/?page=2",
+        "previous": null,
+        "results": [
+            {
+                "id": "5vYA1mW9g2Coh1HUFUSmlb",
+                "title": "3AM",
+                "danceability": 0.5,
+                ...
+            }
+        ]
+    }
+    ```
+
+- **Retrieve a Song by Title:**
+
+  - **URL:** `http://localhost:8000/songs/by-title/`
+  - **Method:** `GET`
+  - **Query Parameters:**
+    - `title`: Title of the song to retrieve.
+  - **Response Example:**
+
+    ```json
+    {
+        "id": "5vYA1mW9g2Coh1HUFUSmlb",
+        "title": "3AM",
+        "danceability": 0.5,
+        ...
+    }
+    ```
+
+## Testing API
+
+1. **Run Unit Tests:**
+
+   ```bash
+   python manage.py test songs
+   ```
+
+   This command will discover and run the tests for the songs application in the project.

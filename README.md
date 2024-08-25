@@ -61,7 +61,7 @@ This Django project provides APIs to manage music playlists, allowing you to bul
 
 2. **Access the API Endpoints:**
 
-Django provides an interface to interact with it's APIs. Each API endpoint can be accessed using the URL mentioned.
+   Django provides an interface to interact with it's APIs. Each API endpoint can be accessed using the URL mentioned.
 
 - **List All Songs (with Pagination):**
 

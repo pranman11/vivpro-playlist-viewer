@@ -16,13 +16,13 @@ class RateSongView(CreateAPIView):
     def create(self, request, *args, **kwargs):
         user = request.user
         song_id = request.data.get('song')
-        print(song_id)
+        
         try:
             rating_value = int(request.data.get('rating'))
             if rating_value < 1 or rating_value > 5:
-                return Response({"error": "Rating Value must be: 1, 2, 3, 4, or 5"}, status=status.HTTP_400_BAD_REQUEST)
-        except:
-            return Response({"error": "Rating Value Invlaid"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"error": "Rating must be 1, 2, 3, 4, or 5"}, status=status.HTTP_400_BAD_REQUEST)
+        except ValueError:
+            return Response({"error": "Rating must be 1, 2, 3, 4, or 5"}, status=status.HTTP_400_BAD_REQUEST)
         try:
             song = Song.objects.get(id=song_id)
         except Song.DoesNotExist:
@@ -51,7 +51,7 @@ class SongViewSet(ModelViewSet):
         Custom action to retrieve a song by its title.
         """
         title = request.query_params.get('title', None)
-        if title is None:
+        if not title:
             return Response({"error": "Title parameter is missing"}, status=status.HTTP_400_BAD_REQUEST)
 
         try:

@@ -21,10 +21,10 @@ class RateSongView(CreateAPIView):
             rating_value = int(request.data.get('rating'))
             if rating_value < 1 or rating_value > 5:
                 return Response({"error": "Rating must be 1, 2, 3, 4, or 5"}, status=status.HTTP_400_BAD_REQUEST)
+                
+            song = Song.objects.get(id=song_id)
         except ValueError:
             return Response({"error": "Rating must be 1, 2, 3, 4, or 5"}, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            song = Song.objects.get(id=song_id)
         except Song.DoesNotExist:
             return Response({"error": "Song not found"}, status=status.HTTP_404_NOT_FOUND)
 

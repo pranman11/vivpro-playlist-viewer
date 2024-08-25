@@ -32,6 +32,7 @@ This Django project provides APIs to manage music playlists, allowing you to bul
 4. **Apply Migrations:**
 
    ```bash
+   python manage.py makemigrations songs
    python manage.py migrate
    ```
 
@@ -58,9 +59,6 @@ This Django project provides APIs to manage music playlists, allowing you to bul
    ```
 
 2. **Access the Application:**
-
-   - **Admin Interface:** `http://localhost:8000/admin/`
-   - **API Endpoints:** `http://localhost:8000/songs/`
 
 ## API Endpoints
 
@@ -107,6 +105,18 @@ Django provides an interface to interact with it's APIs. Each API endpoint can b
         ...
     }
     ```
+
+- **Rate a Song (user login required):**
+   Django's inbuilt User model is used as a base model to create a relation between user rating and song. Therefore, easiest way to access this API would be to log into the admin portal using user details.
+
+  - **URL:** `http://localhost:8000/rate/`
+  - **Method:** `POST`
+  - **Payload:**
+    ```json
+    {
+        "song": <song_id>,
+        "rating": "<rating_1/2/3/4/5>"
+    }
 
 ## Testing API
 

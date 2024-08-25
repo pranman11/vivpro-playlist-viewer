@@ -8,12 +8,12 @@ This Django project provides APIs to manage music playlists, allowing you to bul
 - **List All Songs (with Pagination):** Retrieve a paginated list of all songs.
 - **Retrieve a Song by Title:** Fetch details of a song given its title.
 - **Admin Interface:** Manage songs via the Django admin interface.
-- **Unit Tests:** Test API endpoints and functionality.
+- **Automated Tests:** Test API endpoints and functionality.
 
 ## Installation Instructions
 
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+   git clone https://github.com/pranman11/vivpro-playlist-viewer.git
+   cd vivpro-playlist-viewer

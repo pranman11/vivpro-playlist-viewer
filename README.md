@@ -41,6 +41,7 @@ This Django project provides APIs to manage music playlists, allowing you to bul
    ```bash
    python manage.py createsuperuser
    ```
+   On running the above command, you should be prompted to enter details of the user (dummy details can be entered). This user can be used to access the admin portal from http://localhost:8000/admin and further, can be used to test the rating API mentioned below.
 
 6. **Load Initial Data using the upload JSON feature:**
 

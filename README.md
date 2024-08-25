@@ -23,7 +23,9 @@ This Django project provides APIs to manage music playlists, allowing you to bul
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-3. **Install the Requirements**:
+3. **Install Dependencies**:
+
+   Python version: 3.9.7
 
    ```bash
    pip install -r requirements.txt
@@ -115,6 +117,9 @@ This Django project provides APIs to manage music playlists, allowing you to bul
         "song": <song_id>,
         "rating": "<rating_1/2/3/4/5>"
     }
+
+
+Additionally, the application also allows to retrieve by id (GET /songs/<id>) and create individual songs (POST /songs) as well.
 
 ## Testing API
 
